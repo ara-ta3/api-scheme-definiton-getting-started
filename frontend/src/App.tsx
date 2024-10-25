@@ -1,35 +1,9 @@
 import React, { useState } from "react";
 
-interface User {
-  id: number;
-  name: string;
-  email: string;
-}
+import { useFetchUsers } from "./Hooks";
 
 const App: React.FC = () => {
-  const [users, setUsers] = useState<User[]>([]);
-  const [loading, setLoading] = useState<boolean>(false);
-  const [error, setError] = useState<string | null>(null);
-
-  const fetchUsers = async () => {
-    setLoading(true);
-    setError(null);
-
-    try {
-      setUsers([
-        {
-          id: 1,
-          name: "hoge",
-          email: "hoge@hoge.com",
-        },
-      ]);
-    } catch (err) {
-      setError((err as Error).message);
-    } finally {
-      setLoading(false);
-    }
-  };
-
+  const { users, loading, error, fetchUsers } = useFetchUsers();
   return (
     <div>
       <button onClick={fetchUsers}>Fetch Users</button>
