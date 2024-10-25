@@ -1,13 +1,11 @@
-GRADLE=gradle
-GRADLEW=./gradlew
-
+SBT=sbt
 .PHONY: build
 
-wrapper:
-	$(GRADLE) wrapper
+sbt:
+	$(SBT) 
 
 build:
-	$(GRADLEW) build
+	$(SBT) compile
 
 run:
-	$(GRADLE) run
+	$(SBT) run
