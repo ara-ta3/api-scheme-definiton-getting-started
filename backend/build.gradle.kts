@@ -1,6 +1,3 @@
-import org.jetbrains.kotlin.gradle.dsl.JvmTarget
-import org.jetbrains.kotlin.gradle.dsl.KotlinJvmCompilerOptions
-
 val ktorVersion: String = "2.3.12"
 val log4j: String = "2.24.1"
 
@@ -25,23 +22,18 @@ dependencies {
     implementation("org.apache.logging.log4j:log4j-core:$log4j")
     implementation("org.apache.logging.log4j:log4j-api:$log4j")
     implementation("org.apache.logging.log4j:log4j-slf4j-impl:$log4j")
-
 }
 
-tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinJvmCompile> {
-    compilerOptions {
-        jvmTarget.set(JvmTarget.JVM_17)
-    }
-}
 java {
     toolchain {
-        languageVersion.set(JavaLanguageVersion.of(17))
+        languageVersion.set(JavaLanguageVersion.of(11))
     }
 }
 
-tasks.withType<JavaCompile> {
-    targetCompatibility = "22"
-    sourceCompatibility = "22"
+tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
+    compilerOptions {
+        jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_11)
+    }
 }
 
 application {
