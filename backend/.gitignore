@@ -1,0 +1,60 @@
+# Kotlin specific
+*.class
+*.jar
+*.war
+*.ear
+*.iml
+*.hprof
+*.log
+*.idea/
+*.project
+*.classpath
+*.gradle
+*.settings/
+.DS_Store
+
+# Build directories
+/build/
+out/
+
+# Gradle specific
+.gradle/
+/build/
+/gradle/
+/!gradle/wrapper/gradle-wrapper.jar
+!gradle/wrapper/gradle-wrapper.properties
+
+# IntelliJ IDEA specific
+/.idea/
+/.idea/
+/*.iml
+/modules.xml
+/gradle.xml
+/vcs.xml
+/timestamp
+/shelf/
+/workspace.xml
+/target/
+/.idea/*
+.idea_modules/
+.idea/target/
+
+# MacOS specific
+.DS_Store
+
+# Windows specific
+Thumbs.db
+Desktop.ini
+
+# Linux specific
+*~
+
+# Logs
+*.log
+
+# Environment specific
+.env
+
+gradlew
+gradlew.bat
+.kotlin
