@@ -9,3 +9,6 @@ build:
 
 run:
 	$(SBT) run
+
+curl:
+	curl localhost:8080

@@ -3,5 +3,9 @@ target/
 .ivy
 .coursier
 
-localstack/*
-!localstack/.gitkeep
+# Metals
+.metals/
+.bloop/
+.bsp/
+metals.sbt
+.scala-build
