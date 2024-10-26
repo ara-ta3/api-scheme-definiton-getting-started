@@ -5,7 +5,7 @@ name := "example-app"
 
 version := "0.1.0"
 
-scalaVersion := "3.3.4"
+scalaVersion := "2.13.2"
 
 lazy val rootProject = project
   .in(file("."))
@@ -26,7 +26,7 @@ lazy val rootProject = project
 lazy val openapi = project.in(file("openapi-generated"))
   .enablePlugins(OpenApiGeneratorPlugin)
   .settings(
-    openApiGeneratorName := "scala-sttp",
+    openApiGeneratorName := "scalatra",
     openApiOutputDir := "openapi-generated",
     openApiInputSpec := "../openapi.yml",
     openApiValidateSpec := SettingDisabled,
@@ -35,8 +35,11 @@ lazy val openapi = project.in(file("openapi-generated"))
     libraryDependencies ++= Seq(
       "com.softwaremill.sttp.client3" %% "core" % SttpVersion,
       "com.softwaremill.sttp.client3" %% "json4s" % SttpVersion,
-      "org.json4s" %% "json4s-jackson" % "3.6.8",
+      "org.json4s" %% "json4s-native" % "4.0.6",
+      "org.json4s" %% "json4s-jackson" % "4.0.6",
+      "org.json4s" %% "json4s-ext" % "4.0.6"
       ),
+
   )
 
 
