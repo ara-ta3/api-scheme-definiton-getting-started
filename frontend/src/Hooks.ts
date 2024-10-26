@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Configuration, DefaultApi } from "./openapi";
 
 interface User {
     id: number;
@@ -6,30 +7,33 @@ interface User {
     email: string;
 };
 
-export const useFetchUsers = () => {
-  const [users, setUsers] = useState<User[]>([]);
-  const [loading, setLoading] = useState<boolean>(false);
-  const [error, setError] = useState<string | null>(null);
-
-  const fetchUsers = async () => {
-    setLoading(true);
-    setError(null);
-
-    try {
-      setUsers([
+const apiClient = new DefaultApi(
+    new Configuration(
         {
-          id: 1,
-          name: "hoge",
-          email: "hoge@hoge.com",
-        },
-      ]);
-    } catch (err) {
-      setError((err as Error).message);
-    } finally {
-      setLoading(false);
-    }
-  };
+            basePath: "http://localhost:8080"
+        }
+    )
+);
 
-  return { users, loading, error, fetchUsers };
+export const useFetchUsers = () => {
+    const [users, setUsers] = useState<User[]>([]);
+    const [loading, setLoading] = useState<boolean>(false);
+    const [error, setError] = useState<string | null>(null);
+
+    const fetchUsers = async () => {
+        setLoading(true);
+        setError(null);
+
+        try {
+            const users = await apiClient.apiUsersGet();
+            setUsers(users);
+        } catch (err) {
+            setError((err as Error).message);
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    return { users, loading, error, fetchUsers };
 };
 
