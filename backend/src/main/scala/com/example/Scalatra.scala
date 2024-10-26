@@ -11,7 +11,7 @@ class Scalatra extends ScalatraServlet
   override implicit val jsonFormats: Formats = DefaultFormats
 
   // GETリクエストを処理する
-  get("/") {
+  get("/api/users") {
     contentType = formats("json")
     User(
       1, "foo", "foo@example.com"
@@ -19,7 +19,7 @@ class Scalatra extends ScalatraServlet
   }
 
   // POSTリクエストを処理する
-  post("/submit") {
+  post("/api/users") {
     val name = params.getOrElse("name", "Anonymous")
     s"Hello, $name!"
   }
