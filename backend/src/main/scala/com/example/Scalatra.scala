@@ -7,11 +7,13 @@ import com.example.api.model._
 
 class Scalatra extends ScalatraServlet 
   with JacksonJsonSupport 
-  with ContentEncodingSupport  {
+  with ContentEncodingSupport
+  {
   override implicit val jsonFormats: Formats = DefaultFormats
 
-  // GETリクエストを処理する
   get("/api/users") {
+    response.setHeader("Access-Control-Allow-Origin", "*")
+    response.setHeader("Access-Control-Allow-Headers", "Content-Type")
     contentType = formats("json")
     User(
       1, "foo", "foo@example.com"
