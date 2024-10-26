@@ -15,8 +15,10 @@ class Scalatra extends ScalatraServlet
     response.setHeader("Access-Control-Allow-Origin", "*")
     response.setHeader("Access-Control-Allow-Headers", "Content-Type")
     contentType = formats("json")
-    User(
-      1, "foo", "foo@example.com"
+    Seq(
+      User(
+        1, "foo", "foo@example.com"
+      )
     )
   }
 
