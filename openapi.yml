@@ -43,6 +43,10 @@ components:
         email:
           type: string
           example: foo@example.com
+      required:
+        - id
+        - name
+        - email
     CreateUser:
       type: object
       properties:
