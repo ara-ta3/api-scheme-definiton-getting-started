@@ -3,7 +3,7 @@ val SttpVersion = "3.10.1"
 
 name := "example-app"
 
-version := "0.1.0-SNAPSHOT"
+version := "0.1.0"
 
 scalaVersion := "3.3.4"
 
@@ -19,13 +19,14 @@ lazy val rootProject = project
       "ch.qos.logback" % "logback-classic" % "1.4.11",
     )
   )
-  .aggregate(openapi)
+  .dependsOn(openapi)
 
 lazy val openapi = project.in(file("openapi-generated"))
   .enablePlugins(OpenApiGeneratorPlugin)
   .settings(
+    openApiGeneratorName := "scala-sttp",
+    openApiOutputDir := "openapi-generated",
     openApiInputSpec := "../openapi.yml",
-    openApiConfigFile := "openapi-config.yml",
     openApiValidateSpec := SettingDisabled,
     openApiGenerateModelTests := SettingEnabled,
     openApiIgnoreFileOverride := "./openapi-ignore-file",

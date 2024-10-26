@@ -1,4 +1,0 @@
-apiPackage: "com.example.api"
-generatorName: "scala-sttp"
-outputDir : "openapi-generated"
-
