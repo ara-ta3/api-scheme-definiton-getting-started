@@ -11,7 +11,7 @@ run:
 	$(SBT) run
 
 curl:
-	curl localhost:8080
+	curl localhost:8080/api/users
 
 generate:
 	$(SBT) openapi/openApiGenerate
