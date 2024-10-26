@@ -17,7 +17,9 @@ lazy val rootProject = project
       "org.eclipse.jetty" % "jetty-server" % "11.0.15",
       "org.slf4j" % "slf4j-api" % "2.0.9",
       "ch.qos.logback" % "logback-classic" % "1.4.11",
-    )
+
+    ),
+    excludeDependencies += "openapi" % "openapi_3"
   )
   .dependsOn(openapi)
 
