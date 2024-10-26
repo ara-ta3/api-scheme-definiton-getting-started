@@ -9,3 +9,5 @@ target/
 .bsp/
 metals.sbt
 .scala-build
+openapi-generated/src/
+.openapi-generator
