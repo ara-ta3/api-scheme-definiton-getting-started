@@ -1,5 +1,4 @@
-apiPackage: "com.exmaple.api"
+apiPackage: "com.example.api"
 generatorName: "scala-sttp"
 outputDir : "openapi-generated"
-additionalProperties:
-  scalaVersion: "3.2.2"
+
