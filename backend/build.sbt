@@ -1,16 +1,15 @@
 val ScalatraVersion = "3.1.0"
 val SttpVersion = "3.10.1"
+val ScalaVersion = "3.3.4"
 
 name := "example-app"
 
 version := "0.1.0"
 
-scalaVersion := "2.13.15"
-
-
 lazy val rootProject = project
   .in(file("."))
   .settings(
+    scalaVersion := ScalaVersion,
     libraryDependencies ++= Seq(
       "org.scalatra" %% "scalatra-jakarta" % ScalatraVersion,
       "org.scalatra"   %% "scalatra-json-jakarta" % ScalatraVersion,
@@ -31,6 +30,7 @@ lazy val rootProject = project
 lazy val openapi = project.in(file("openapi-generated"))
   .enablePlugins(OpenApiGeneratorPlugin)
   .settings(
+    scalaVersion := ScalaVersion,
     openApiGeneratorName := "scalatra",
     openApiOutputDir := "openapi-generated",
     openApiInputSpec := "../openapi.yml",
