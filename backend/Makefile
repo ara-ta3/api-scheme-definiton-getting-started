@@ -14,4 +14,4 @@ curl:
 	curl localhost:8080
 
 generate:
-	$(SBT) openApiGenerate
+	$(SBT) openapi/openApiGenerate
