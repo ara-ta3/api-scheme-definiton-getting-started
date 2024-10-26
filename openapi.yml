@@ -1,0 +1,57 @@
+openapi: 3.0.1
+info:
+  title: User API
+  version: 1.0.0
+paths:
+  /api/users:
+    get:
+      summary: Get all users
+      responses:
+        '200':
+          description: A list of users
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
+    post:
+      summary: Add a new user
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateUser'
+      responses:
+        '200':
+          description: The created user
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        name:
+          type: string
+          example: Foo
+        email:
+          type: string
+          example: foo@example.com
+    CreateUser:
+      type: object
+      properties:
+        name:
+          type: string
+          example: Alice
+        email:
+          type: string
+          example: alice@example.com
+      required:
+        - name
+        - email
