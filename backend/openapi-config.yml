@@ -1,3 +1,5 @@
 apiPackage: "com.exmaple.api"
 generatorName: "scala-sttp"
-outputDir : "generated"
+outputDir : "openapi-generated"
+additionalProperties:
+  scalaVersion: "3.2.2"

@@ -27,7 +27,8 @@ lazy val generated = project.in(file("generated"))
     openApiInputSpec := "../openapi.yml",
     openApiConfigFile := "openapi-config.yml",
     openApiValidateSpec := SettingDisabled,
-    openApiGenerateModelTests := SettingEnabled
+    openApiGenerateModelTests := SettingEnabled,
+    openApiIgnoreFileOverride := s"${baseDirectory.in(ThisBuild).value.getPath}/openapi-ignore-file",
   )
 
 
