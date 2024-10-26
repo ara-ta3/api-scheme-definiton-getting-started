@@ -3,13 +3,16 @@ package com.example
 import org.scalatra._
 import org.scalatra.json._
 import org.json4s.{DefaultFormats, Formats}
-import org.openapitools.server.model.*
+import com.example.api.model._
 
-class Scalatra extends ScalatraServlet with JacksonJsonSupport  {
-  implicit val formats: Formats = Serialization.formats(NoTypeHints)
+class Scalatra extends ScalatraServlet 
+  with JacksonJsonSupport 
+  with ContentEncodingSupport  {
+  override implicit val jsonFormats: Formats = DefaultFormats
 
   // GETリクエストを処理する
   get("/") {
+    contentType = formats("json")
     User(
       1, "foo", "foo@example.com"
     )
